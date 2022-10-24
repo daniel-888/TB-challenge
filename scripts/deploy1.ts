@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const challengeAddress = "0xeADFC0Ad8F33f0cd9b8b3bFF60D9C2785a307E8E";
+  const challengeAddress = "0xcD7AB80Da7C893f86fA8deDDf862b74D94f4478E";
   const Attack = await ethers.getContractFactory("Attack");
   const attack = await Attack.deploy(challengeAddress);
   await attack.deployed();

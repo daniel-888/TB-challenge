@@ -31,15 +31,19 @@ describe("Lock", function () {
   describe("Deployment", function () {
     it("Should set the right unlockTime", async function () {
       // const { challenge, attack, owner } = await loadFixture(deployOneYearLockFixture);
+      const provider = ethers.provider;
+      console.log("provider = ", (await provider.getNetwork()).chainId);
       const [owner, otherAccount] = await ethers.getSigners();
 
       const Challenge = await ethers.getContractFactory("Challenge");
       const challenge = await Challenge.deploy();
       await challenge.deployed();
+      console.log("challeng = ", challenge.address);
 
       const Attack = await ethers.getContractFactory("Attack");
       const attack = await Attack.deploy(challenge.address);
       await attack.deployed();
+      console.log("attack = ", attack.address);
 
       // return { attack, challenge, owner, otherAccount };
 
